@@ -45,16 +45,18 @@ Este proyecto utiliza una base de datos PostgreSQL que se ejecuta en un contened
    ```
    mkdir -p ~/postgres-data
    ```
-
-3. Inicie el contenedor de Docker para PostgreSQL:
+3. En caso de que desees persistir los datos, puedes crear un volumen docker  
 
    ```
-   docker run --name cuenta-bancaria -e POSTGRES_PASSWORD=miContraseña -d -p 5432:5432 -v ~/postgres-data:/var/lib/postgresql/data postgres
+   docker image create pgdata
+   ```
+
+4. Inicie el contenedor de Docker para PostgreSQL:
+   ```
+   docker run --name cuenta-bancaria -e POSTGRES_PASSWORD=miContraseña -v pgdata:/var/lib/postgresql/data -d -p 5432:5432 postgres
    ```
 
    Asegúrese de reemplazar `miContraseña` con una contraseña segura para su base de datos.
-
-4. Después de iniciar el contenedor de Docker, cree la base de datos y las tablas necesarias para la aplicación. Puede hacer esto usando herramientas como pgAdmin o ejecutando scripts SQL directamente en el contenedor.
 
 ## Ejecución del proyecto
 
@@ -65,6 +67,10 @@ gradle bootRun
 ```
 
 La aplicación ahora debería estar ejecutándose en `http://localhost:8080`.
+
+## Endpoints 
+La documetnación de la API se genera automáticamente con Swagger
+http://localhost:8080/swagger-ui/
 
 ## Nota
 

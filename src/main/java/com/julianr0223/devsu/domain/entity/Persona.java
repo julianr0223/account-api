@@ -10,11 +10,12 @@ import javax.persistence.*;
 import java.time.LocalDate;
 
 @Entity
+@Table(name = "personas")
 @Getter
 @Setter
 @Inheritance(strategy = InheritanceType.JOINED)
 @Where(clause = "fecha_eliminacion IS NULL")
-public class Persona extends Auditable {
+public class Persona extends Auditable{
     @Id
     private String identificacion;
 

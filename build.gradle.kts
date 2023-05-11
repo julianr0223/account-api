@@ -22,6 +22,9 @@ repositories {
 dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-data-jpa")
 	implementation("org.springframework.boot:spring-boot-starter-web")
+	implementation("javax.xml.bind:jaxb-api:2.4.0-b180830.0359")
+	implementation("org.modelmapper:modelmapper:3.1.1")
+	implementation("io.springfox:springfox-boot-starter:3.0.0")
 	compileOnly("org.projectlombok:lombok")
 	runtimeOnly("org.postgresql:postgresql")
 	annotationProcessor("org.projectlombok:lombok")

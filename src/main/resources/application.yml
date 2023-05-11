@@ -4,6 +4,9 @@ spring:
     username: postgres
     password: julianr0223 # pasar password por variable de entorno
     driver-class-name: org.postgresql.Driver
+  mvc:
+    pathmatch:
+      matching-strategy: ANT_PATH_MATCHER
   jpa:
     database-platform: org.hibernate.dialect.PostgreSQLDialect
     hibernate:
