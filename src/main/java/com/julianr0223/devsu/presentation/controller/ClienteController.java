@@ -1,7 +1,7 @@
 package com.julianr0223.devsu.presentation.controller;
 
 import com.julianr0223.devsu.application.service.ClienteService;
-import com.julianr0223.devsu.domain.entity.Cliente;
+import infrastructure.dto.ClienteDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -17,26 +17,26 @@ public class ClienteController {
     private ClienteService clienteService;
 
     @PostMapping
-    public ResponseEntity<Cliente> crearCliente(@RequestBody Cliente cliente) throws URISyntaxException {
-        Cliente clienteCreado = clienteService.crearCliente(cliente);
+    public ResponseEntity<ClienteDTO> crearCliente(@RequestBody ClienteDTO clienteAActualizarDto) throws URISyntaxException {
+        ClienteDTO clienteCreado = clienteService.crearCliente(clienteAActualizarDto);
         return ResponseEntity.created(new URI("/api/clientes/" + clienteCreado.getIdentificacion())).body(clienteCreado);
     }
 
     @GetMapping("/{identificacion}")
-    public ResponseEntity<Cliente> obtenerCliente(@PathVariable String identificacion) {
-        Cliente cliente = clienteService.obtenerCliente(identificacion);
+    public ResponseEntity<ClienteDTO> obtenerCliente(@PathVariable String identificacion) {
+        ClienteDTO cliente = clienteService.obtenerCliente(identificacion);
         return ResponseEntity.ok(cliente);
     }
 
     @GetMapping
-    public ResponseEntity<List<Cliente>> obtenerClientes() {
-        List<Cliente> clientes = clienteService.obtenerClientes();
+    public ResponseEntity<List<ClienteDTO>> obtenerClientes() {
+        List<ClienteDTO> clientes = clienteService.obtenerClientes();
         return ResponseEntity.ok(clientes);
     }
 
     @PutMapping("/{identificacion}")
-    public ResponseEntity<Cliente> actualizarCliente(@PathVariable String identificacion, @RequestBody Cliente clienteAActualizar) {
-        Cliente clienteActualizado = clienteService.actualizarCliente(identificacion, clienteAActualizar);
+    public ResponseEntity<ClienteDTO> actualizarCliente(@PathVariable String identificacion, @RequestBody ClienteDTO clienteAActualizar) {
+        ClienteDTO clienteActualizado = clienteService.actualizarCliente(identificacion, clienteAActualizar);
         return ResponseEntity.ok(clienteActualizado);
     }
 

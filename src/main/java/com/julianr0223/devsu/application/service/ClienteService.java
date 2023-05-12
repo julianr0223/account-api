@@ -1,13 +1,13 @@
 package com.julianr0223.devsu.application.service;
 
-import com.julianr0223.devsu.domain.entity.Cliente;
+import infrastructure.dto.ClienteDTO;
 
 import java.util.List;
 
 public interface ClienteService {
-    Cliente crearCliente(Cliente cliente);
-    Cliente obtenerCliente(String identificacion);
-    List<Cliente> obtenerClientes();
-    Cliente actualizarCliente(String identificacion, Cliente cliente);
+    ClienteDTO crearCliente(ClienteDTO cliente);
+    ClienteDTO obtenerCliente(String identificacion);
+    List<ClienteDTO> obtenerClientes();
+    ClienteDTO actualizarCliente(String identificacion, ClienteDTO cliente);
     void eliminarcliente(String identificacion);
 }

@@ -11,6 +11,7 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @Entity
+@Table(name = "movimientos")
 @Getter
 @Setter
 @Where(clause = "fecha_eliminacion IS NULL")
@@ -31,4 +32,8 @@ public class Movimiento extends Auditable {
 
     @Column(precision = 15, scale = 2, nullable = false)
     private BigDecimal saldo;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "numero_cuenta")
+    private Cuenta cuenta;
 }

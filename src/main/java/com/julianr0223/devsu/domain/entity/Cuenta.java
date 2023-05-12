@@ -8,8 +8,10 @@ import org.hibernate.annotations.Where;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
+import java.util.List;
 
 @Entity
+@Table(name = "cuentas")
 @Getter
 @Setter
 @Where(clause = "fecha_eliminacion IS NULL")
@@ -25,4 +27,11 @@ public class Cuenta extends Auditable {
     private BigDecimal saldoInicial;
 
     private String estado;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "cliente_id")
+    private Cliente cliente;
+
+    @OneToMany(mappedBy = "cuenta", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<Movimiento> movimientos;
 }
