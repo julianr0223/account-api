@@ -5,7 +5,7 @@ import com.julianr0223.devsu.domain.dto.MovimientoDTO;
 import java.util.List;
 
 public interface MovimientoRepository {
-    MovimientoDTO guardar(Long idCuenta, MovimientoDTO movimiento);
+    MovimientoDTO guardar(MovimientoDTO movimiento);
 
     MovimientoDTO buscarPorId(Long idMovimiento);
 

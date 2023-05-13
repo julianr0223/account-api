@@ -3,15 +3,18 @@ package com.julianr0223.devsu.application.service.imp;
 import com.julianr0223.devsu.application.service.CuentaService;
 import com.julianr0223.devsu.domain.dto.CuentaDTO;
 import com.julianr0223.devsu.domain.repository.CuentaRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 @Service
 public class CuentaServiceImpl implements CuentaService {
-    @Autowired
     private CuentaRepository cuentaRepository;
+
+    public CuentaServiceImpl(CuentaRepository cuentaRepository) {
+        this.cuentaRepository = cuentaRepository;
+    }
 
     @Override
     public CuentaDTO crearCuenta(Long idCliente, CuentaDTO cuantaACrearDto) {
@@ -36,6 +39,14 @@ public class CuentaServiceImpl implements CuentaService {
     @Override
     public void eliminarCuenta(Long idCuenta) {
         cuentaRepository.eliminar(idCuenta);
+    }
+
+    @Override
+    public CuentaDTO actualizarSaldo(Long idCuenta, BigDecimal valor) {
+        CuentaDTO cuenta = this.obtenerCuenta(idCuenta);
+        cuenta.actualizarSaldo(valor);
+        this.actualizarCuenta(idCuenta, cuenta);
+        return cuenta;
     }
 
 

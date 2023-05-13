@@ -35,4 +35,10 @@ public class Movimiento extends Auditable {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "numero_cuenta")
     private Cuenta cuenta;
+
+    public void crearMovimiento(Cuenta cuenta) {
+        this.setFecha(LocalDateTime.now());
+        this.setCuenta(cuenta);
+        this.setSaldo(cuenta.getSaldo());
+    }
 }

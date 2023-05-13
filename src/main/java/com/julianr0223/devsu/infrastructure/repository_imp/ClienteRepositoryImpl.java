@@ -2,6 +2,7 @@ package com.julianr0223.devsu.infrastructure.repository_imp;
 
 import com.julianr0223.devsu.application.service.utils.DTOMapper;
 import com.julianr0223.devsu.domain.dto.ClienteDTO;
+import com.julianr0223.devsu.domain.exception.ClienteNoEncontradoException;
 import com.julianr0223.devsu.domain.repository.ClienteRepository;
 import com.julianr0223.devsu.infrastructure.entity.Cliente;
 import com.julianr0223.devsu.infrastructure.repository_imp.jpa.ClienteRepositoryJPA;
@@ -9,7 +10,6 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import javax.persistence.EntityNotFoundException;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -63,6 +63,6 @@ public class ClienteRepositoryImpl implements ClienteRepository {
 
     private Cliente obtenerClientePorIdentificacion(Long idCliente) {
         return clienteRepositoryJPA.findById(idCliente)
-                .orElseThrow(() -> new EntityNotFoundException("Cliente no encontrado"));
+                .orElseThrow(() -> new ClienteNoEncontradoException("Cliente no encontrado"));
     }
 }

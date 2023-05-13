@@ -3,7 +3,6 @@ package com.julianr0223.devsu.infrastructure.repository_imp;
 import com.julianr0223.devsu.application.service.utils.DTOMapper;
 import com.julianr0223.devsu.domain.dto.MovimientoDTO;
 import com.julianr0223.devsu.domain.repository.MovimientoRepository;
-import com.julianr0223.devsu.infrastructure.entity.Cuenta;
 import com.julianr0223.devsu.infrastructure.entity.Movimiento;
 import com.julianr0223.devsu.infrastructure.repository_imp.jpa.CuentaRepositoryJPA;
 import com.julianr0223.devsu.infrastructure.repository_imp.jpa.MovimientoRepositoryJPA;
@@ -29,13 +28,10 @@ public class MovimientoRepositoryImpl implements MovimientoRepository {
 
     @Autowired
     private DTOMapper dtoMapper;
+
     @Override
-    public MovimientoDTO guardar(Long idCuenta, MovimientoDTO movimientoACrearDTO) {
-        Cuenta cuenta = cuentaRepositoryJPA.findById(idCuenta).orElseThrow(() -> new IllegalArgumentException("Cuenta no encontrada"));
+    public MovimientoDTO guardar(MovimientoDTO movimientoACrearDTO) {
         Movimiento movimientoACrear = dtoMapper.convertToEntity(movimientoACrearDTO, Movimiento.class);
-        movimientoACrear.setFecha(LocalDateTime.now());
-        movimientoACrear.setCuenta(cuenta);
-        movimientoACrear.setSaldo(cuenta.getSaldoInicial());
         Movimiento movimientoCreado = movimientoRepositoryJPA.save(movimientoACrear);
         return dtoMapper.convertToDTO(movimientoCreado, MovimientoDTO.class);
     }
@@ -54,7 +50,7 @@ public class MovimientoRepositoryImpl implements MovimientoRepository {
     }
 
     @Override
-    public MovimientoDTO actualizar(Long idMovimiento, MovimientoDTO movimientoAActualizarDTO){
+    public MovimientoDTO actualizar(Long idMovimiento, MovimientoDTO movimientoAActualizarDTO) {
         Movimiento movimientoDestino = obtenerMovimientoPorId(idMovimiento);
         Movimiento movimientoOrigen = dtoMapper.convertToEntity(movimientoAActualizarDTO, Movimiento.class);
         modelMapper.map(movimientoOrigen, movimientoDestino);

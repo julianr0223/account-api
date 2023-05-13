@@ -13,4 +13,5 @@ public class MovimientoDTO {
     private TipoMovimiento tipoMovimiento;
     private BigDecimal valor;
     private BigDecimal saldo;
+    private CuentaDTO cuenta;
 }

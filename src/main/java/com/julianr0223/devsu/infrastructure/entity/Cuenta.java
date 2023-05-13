@@ -28,7 +28,7 @@ public class Cuenta extends Auditable {
     private TipoCuenta tipoCuenta;
 
     @Column(precision = 15, scale = 2)
-    private BigDecimal saldoInicial;
+    private BigDecimal saldo;
 
     @Enumerated(EnumType.STRING)
     private EstadoCuenta estado;
