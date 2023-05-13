@@ -1,7 +1,7 @@
-package com.julianr0223.devsu.presentation.controller;
+package com.julianr0223.devsu.infrastructure.controller;
 
 import com.julianr0223.devsu.application.service.ClienteService;
-import infrastructure.dto.ClienteDTO;
+import com.julianr0223.devsu.domain.dto.ClienteDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -22,9 +22,9 @@ public class ClienteController {
         return ResponseEntity.created(new URI("/api/clientes/" + clienteCreado.getIdentificacion())).body(clienteCreado);
     }
 
-    @GetMapping("/{identificacion}")
-    public ResponseEntity<ClienteDTO> obtenerCliente(@PathVariable String identificacion) {
-        ClienteDTO cliente = clienteService.obtenerCliente(identificacion);
+    @GetMapping("/{idCliente}")
+    public ResponseEntity<ClienteDTO> obtenerCliente(@PathVariable Long idCliente) {
+        ClienteDTO cliente = clienteService.obtenerCliente(idCliente);
         return ResponseEntity.ok(cliente);
     }
 
@@ -34,15 +34,15 @@ public class ClienteController {
         return ResponseEntity.ok(clientes);
     }
 
-    @PutMapping("/{identificacion}")
-    public ResponseEntity<ClienteDTO> actualizarCliente(@PathVariable String identificacion, @RequestBody ClienteDTO clienteAActualizar) {
-        ClienteDTO clienteActualizado = clienteService.actualizarCliente(identificacion, clienteAActualizar);
+    @PutMapping("/{idCliente}")
+    public ResponseEntity<ClienteDTO> actualizarCliente(@PathVariable Long idCliente, @RequestBody ClienteDTO clienteAActualizar) {
+        ClienteDTO clienteActualizado = clienteService.actualizarCliente(idCliente, clienteAActualizar);
         return ResponseEntity.ok(clienteActualizado);
     }
 
-    @DeleteMapping(("/{identificacion}"))
-    public ResponseEntity<Void> eliminarCliente(@PathVariable String identificacion) {
-        clienteService.eliminarcliente(identificacion);
+    @DeleteMapping(("/{idCliente}"))
+    public ResponseEntity<Void> eliminarCliente(@PathVariable Long idCliente) {
+        clienteService.eliminarcliente(idCliente);
         return ResponseEntity.noContent().build();
     }
 }

@@ -1,6 +1,6 @@
-package com.julianr0223.devsu.domain.entity;
+package com.julianr0223.devsu.infrastructure.entity;
 
-import com.julianr0223.devsu.domain.Auditable;
+import com.julianr0223.devsu.domain.enums.EstadoCliente;
 import com.julianr0223.devsu.domain.enums.Genero;
 import lombok.Getter;
 import lombok.Setter;
@@ -21,7 +21,7 @@ public class Cliente extends Auditable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long clienteId;
 
-    @Column(nullable = false)
+    @Column(unique = true, nullable = false)
     private String identificacion;
 
     private String nombre;
@@ -37,7 +37,8 @@ public class Cliente extends Auditable {
 
     private String contrasena;
 
-    private String estado;
+    @Enumerated(EnumType.STRING)
+    private EstadoCliente estado;
 
     @OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Cuenta> cuentas = new ArrayList<>();

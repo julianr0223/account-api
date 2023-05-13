@@ -1,6 +1,5 @@
-package com.julianr0223.devsu.domain.entity;
+package com.julianr0223.devsu.infrastructure.entity;
 
-import com.julianr0223.devsu.domain.Auditable;
 import com.julianr0223.devsu.domain.enums.TipoMovimiento;
 import lombok.Getter;
 import lombok.Setter;
@@ -36,4 +35,10 @@ public class Movimiento extends Auditable {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "numero_cuenta")
     private Cuenta cuenta;
+
+    public void crearMovimiento(Cuenta cuenta) {
+        this.setFecha(LocalDateTime.now());
+        this.setCuenta(cuenta);
+        this.setSaldo(cuenta.getSaldo());
+    }
 }

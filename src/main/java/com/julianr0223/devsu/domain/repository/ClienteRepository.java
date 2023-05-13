@@ -1,10 +1,19 @@
 package com.julianr0223.devsu.domain.repository;
 
-import com.julianr0223.devsu.domain.entity.Cliente;
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Repository;
 
-@Repository
-public interface ClienteRepository extends JpaRepository<Cliente, String> {
+import com.julianr0223.devsu.domain.dto.ClienteDTO;
 
+import java.util.List;
+
+
+public interface ClienteRepository {
+    ClienteDTO crear(ClienteDTO cliente);
+
+    ClienteDTO buscarPorIdentificador(Long idCliente);
+
+    List<ClienteDTO> obtenerTodos();
+
+    void eliminar(Long idCliente);
+
+    ClienteDTO actualizar(Long idCliente, ClienteDTO clienteAActualizarDto);
 }

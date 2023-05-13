@@ -1,4 +1,4 @@
-package com.julianr0223.devsu.domain;
+package com.julianr0223.devsu.infrastructure.entity;
 
 import lombok.Getter;
 import lombok.Setter;

@@ -1,4 +1,4 @@
-package com.julianr0223.devsu.configuration;
+package com.julianr0223.devsu.infrastructure.configuration;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -17,7 +17,7 @@ public class SwaggerConfig {
     public Docket apiDocket() {
         return new Docket(DocumentationType.SWAGGER_2)
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("com.julianr0223.devsu.presentation.controller"))
+                .apis(RequestHandlerSelectors.basePackage("com.julianr0223.devsu.infrastructure.controller"))
                 .paths(PathSelectors.any())
                 .build()
                 .apiInfo(apiInfo());
