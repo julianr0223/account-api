@@ -1,4 +1,4 @@
-package com.julianr0223.devsu.configuration;
+package com.julianr0223.devsu.infrastructure.configuration;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.context.annotation.Bean;

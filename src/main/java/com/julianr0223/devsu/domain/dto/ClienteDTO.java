@@ -1,5 +1,6 @@
-package infrastructure.dto;
+package com.julianr0223.devsu.domain.dto;
 
+import com.julianr0223.devsu.domain.enums.EstadoCliente;
 import com.julianr0223.devsu.domain.enums.Genero;
 import lombok.Data;
 
@@ -15,5 +16,5 @@ public class ClienteDTO {
     private String direccion;
     private String telefono;
     private String contrasena;
-    private String estado;
+    private EstadoCliente estado;
 }

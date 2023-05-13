@@ -1,6 +1,5 @@
-package com.julianr0223.devsu.domain.entity;
+package com.julianr0223.devsu.infrastructure.entity;
 
-import com.julianr0223.devsu.domain.Auditable;
 import com.julianr0223.devsu.domain.enums.TipoMovimiento;
 import lombok.Getter;
 import lombok.Setter;
