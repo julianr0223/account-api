@@ -1,0 +1,528 @@
+{
+	"info": {
+		"_postman_id": "14e2024b-a7ef-4c43-a408-7fd782c948c1",
+		"name": "Cuenta bancaria",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "1512513",
+		"_collection_link": "https://rest-api-testing.postman.co/workspace/zabud~ee2c8611-31ec-43de-aa3b-4e4f8237306f/collection/1512513-14e2024b-a7ef-4c43-a408-7fd782c948c1?action=share&creator=1512513&source=collection_link"
+	},
+	"item": [
+		{
+			"name": "Cliente",
+			"item": [
+				{
+					"name": "Crear cliente",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \n    \"identificacion\": \"123456789\",\n    \"nombre\": \"Zuly Cardona\",\n    \"telefono\": \"1111111\",\n    \"contrasena\": \"2222222\",\n    \"direccion\": \"Cra 76A # 123-215\",\n    \"fechaNacimiento\": \"2000-02-23\",\n    \"genero\": \"MASCULINO\",\n    \"estado\": \"ACTIVO\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{host}}:{{port}}/api/clientes",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"api",
+								"clientes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Editar Cliente",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{  \n  \"direccion\": \"Barrio los COLORES\"  \n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{host}}:{{port}}/api/clientes/4",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"api",
+								"clientes",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Consultar clientes",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{  \n  \"contrasena\": \"123456\",\n  \"direccion\": \"los colores\",\n  \"estado\": \"creado\",  \n  \"fechaNacimiento\": \"1988-02-23\",\n  \"genero\": \"FEMENINO\",\n  \"identificacion\": \"1035911500\",\n  \"nombre\": \"Julian Rincon\",\n  \"telefono\": \"123456789\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{host}}:{{port}}/api/clientes",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"api",
+								"clientes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Consultar cliente por idCliente",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{  \n  \"contrasena\": \"123456\",\n  \"direccion\": \"los colores\",\n  \"estado\": \"creado\",  \n  \"fechaNacimiento\": \"1988-02-23\",\n  \"genero\": \"FEMENINO\",\n  \"identificacion\": \"1035911500\",\n  \"nombre\": \"Julian Rincon\",\n  \"telefono\": \"123456789\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{host}}:{{port}}/api/clientes/6",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"api",
+								"clientes",
+								"6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Eliminar cliente",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{  \n  \"contrasena\": \"123456\",\n  \"direccion\": \"los colores\",\n  \"estado\": \"creado\",  \n  \"fechaNacimiento\": \"1988-02-23\",\n  \"genero\": \"FEMENINO\",\n  \"identificacion\": \"1035911500\",\n  \"nombre\": \"Julian Rincon\",\n  \"telefono\": \"123456789\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{host}}:{{port}}/api/clientes/8",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"api",
+								"clientes",
+								"8"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Cuenta",
+			"item": [
+				{
+					"name": "Crear cuenta",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{  \n    \"tipoCuenta\": \"CORRIENTE\",\n    \"saldoInicial\": 4000    \n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{host}}:{{port}}/api/cuentas/13",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"api",
+								"cuentas",
+								"13"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Editar Cuenta",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{  \n  \"saldoInicial\": 0  \n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{host}}:{{port}}/api/cuentas/14",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"api",
+								"cuentas",
+								"14"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Consultar cuentas",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{  \n  \"contrasena\": \"123456\",\n  \"direccion\": \"los colores\",\n  \"estado\": \"creado\",  \n  \"fechaNacimiento\": \"1988-02-23\",\n  \"genero\": \"FEMENINO\",\n  \"identificacion\": \"1035911500\",\n  \"nombre\": \"Julian Rincon\",\n  \"telefono\": \"123456789\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{host}}:{{port}}/api/cuentas",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"api",
+								"cuentas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Consultar cuenta por identificación",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{  \n  \"contrasena\": \"123456\",\n  \"direccion\": \"los colores\",\n  \"estado\": \"creado\",  \n  \"fechaNacimiento\": \"1988-02-23\",\n  \"genero\": \"FEMENINO\",\n  \"identificacion\": \"1035911500\",\n  \"nombre\": \"Julian Rincon\",\n  \"telefono\": \"123456789\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{host}}:{{port}}/api/cuentas/14",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"api",
+								"cuentas",
+								"14"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Eliminar cuenta",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{  \n  \"contrasena\": \"123456\",\n  \"direccion\": \"los colores\",\n  \"estado\": \"creado\",  \n  \"fechaNacimiento\": \"1988-02-23\",\n  \"genero\": \"FEMENINO\",\n  \"identificacion\": \"1035911500\",\n  \"nombre\": \"Julian Rincon\",\n  \"telefono\": \"123456789\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{host}}:{{port}}/api/cuentas/15",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"api",
+								"cuentas",
+								"15"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Movimientos",
+			"item": [
+				{
+					"name": "Crear movimiento",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{  \n    \"tipoMovimiento\": \"DEPOSITO\",\n    \"valor\": 100    \n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{host}}:{{port}}/api/movimientos/14",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"api",
+								"movimientos",
+								"14"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Editar Cuenta",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{  \n  \"saldoInicial\": 0  \n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{host}}:{{port}}/api/cuentas/14",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"api",
+								"cuentas",
+								"14"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Consultar cuentas",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{  \n  \"contrasena\": \"123456\",\n  \"direccion\": \"los colores\",\n  \"estado\": \"creado\",  \n  \"fechaNacimiento\": \"1988-02-23\",\n  \"genero\": \"FEMENINO\",\n  \"identificacion\": \"1035911500\",\n  \"nombre\": \"Julian Rincon\",\n  \"telefono\": \"123456789\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{host}}:{{port}}/api/cuentas",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"api",
+								"cuentas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Consultar cuenta por identificación",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{  \n  \"contrasena\": \"123456\",\n  \"direccion\": \"los colores\",\n  \"estado\": \"creado\",  \n  \"fechaNacimiento\": \"1988-02-23\",\n  \"genero\": \"FEMENINO\",\n  \"identificacion\": \"1035911500\",\n  \"nombre\": \"Julian Rincon\",\n  \"telefono\": \"123456789\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{host}}:{{port}}/api/cuentas/14",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"api",
+								"cuentas",
+								"14"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Eliminar cuenta",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{  \n  \"contrasena\": \"123456\",\n  \"direccion\": \"los colores\",\n  \"estado\": \"creado\",  \n  \"fechaNacimiento\": \"1988-02-23\",\n  \"genero\": \"FEMENINO\",\n  \"identificacion\": \"1035911500\",\n  \"nombre\": \"Julian Rincon\",\n  \"telefono\": \"123456789\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{host}}:{{port}}/api/cuentas/15",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"api",
+								"cuentas",
+								"15"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "host",
+			"value": "localhost",
+			"type": "string"
+		},
+		{
+			"key": "port",
+			"value": "8080",
+			"type": "string"
+		},
+		{
+			"key": "URL_API",
+			"value": "",
+			"type": "string",
+			"disabled": true
+		}
+	]
+}
